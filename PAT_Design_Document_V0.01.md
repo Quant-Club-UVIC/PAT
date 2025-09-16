@@ -1,7 +1,7 @@
 # Software Design Document
 ## 1. Introduction 
 ### 1.1 Project Title  
-TO BE DONE (Suggestion : Portfolio Analysis Tool (PAT))
+Portfolio Analysis Tool (PAT)
 ### 1.2 Problem Statement
 Retail investors lack free, accessible tools to preform deep, quantative analysis of their investments. 
 ### 1.3 Solution Summary
