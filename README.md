@@ -9,7 +9,7 @@ git clone https://github.com/Quant-Club-UVIC/PAT.git
 Set up your environment by 
 ```bash
 conda env create -f environment.yml
-conda activate myproject
+conda activate PAT
 ```
 
 ## Contributors
