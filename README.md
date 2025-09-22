@@ -8,9 +8,5 @@ python3.12 -m venv venv
 source venv/bin/activate  
 pip3 install -r requirements.txt
 ```
-Next we need to set up our docker environment. If you are unfamiliar with docker check out https://docs.sevenbridges.com/docs/install-docker-on-linux .
-```bash
-docker compose up --build
-```
 ## Contributors
 Add here later
