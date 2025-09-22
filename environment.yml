@@ -1,0 +1,13 @@
+name: PAT
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - python=3.12
+  - numpy
+  - matplotlib
+  - ipykernel
+  - pip
+  - pip:
+    - -r requirements.txt
+prefix: /home/abil/anaconda3/envs/PAT
