@@ -1,9 +1,7 @@
 
 from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
 
-from server.utils.responses import success_response
+from utils.responses import success_response
 
 
 class LogoutView(APIView):

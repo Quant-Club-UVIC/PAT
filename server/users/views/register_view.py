@@ -2,8 +2,8 @@ from django.contrib.auth import get_user_model
 from rest_framework import generics, status
 from rest_framework.exceptions import ValidationError
 
-from server.users.serializers import RegisterSerializer
-from server.utils.responses import success_response, error_response
+from ..serializers import RegisterSerializer
+from utils.responses import success_response, error_response
 
 User = get_user_model()
 
