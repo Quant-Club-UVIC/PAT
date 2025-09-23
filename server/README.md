@@ -9,7 +9,7 @@ docker compose up --build
 
 Superuser of django admin: 
 ```bash
-python manage.py createsuperuser --username=admin --email=admin@admin.com
+python manage.py runserver 
 ```
 
 To **shut down** the docker server simply *Ctr + C*
