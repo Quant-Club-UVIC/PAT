@@ -33,6 +33,7 @@ media/
 *.sqlite3
 *.db
 
+venv/
 
 node_modules/
 npm-debug.log*
