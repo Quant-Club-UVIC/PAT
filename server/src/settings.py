@@ -100,6 +100,14 @@ CORS_ALLOWED_ORIGINS = [
 
 ] # add frontend client
 
+REFRESH_TOKEN_COOKIE = {
+    "key": "refresh_token",
+    "httponly": True,
+    "secure": True,
+    "samesite": "Lax",
+    "max_age": 60 * 60 * 24 * 7,  # 7 days
+}
+
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 

@@ -2,6 +2,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from django.conf import settings
 
 class AccessAndRefreshTokenView(TokenObtainPairView):
     serializer_class = TokenObtainPairSerializer
@@ -14,19 +15,24 @@ class AccessAndRefreshTokenView(TokenObtainPairView):
         response = super().post(request, *args, **kwargs)
 
         if response.status_code == status.HTTP_200_OK:
-            resfresh = response.data.get('refresh')
-            #access_token = response.data.get('access_token')
+            response.data: dict
+            refresh = response.data.get('refresh')
 
+            access_token = response.data.pop('access', None)
             response.data.pop('refresh', None)
 
+            if access_token:
+                response.data['access_token'] = access_token
+
             # need to change this in prod
+
             response.set_cookie(
-                key='refresh_token',
-                value=resfresh,
-                httponly=True,
-                secure=True,
-                samesite='Lax',
-                max_age=60 * 60 * 24 * 7 # 7 days
+                key=settings.REFRESH_TOKEN_COOKIE["key"],
+                value=refresh,
+                httponly=settings.REFRESH_TOKEN_COOKIE["httponly"],
+                secure=settings.REFRESH_TOKEN_COOKIE["secure"],
+                samesite=settings.REFRESH_TOKEN_COOKIE["samesite"],
+                max_age=settings.REFRESH_TOKEN_COOKIE["max_age"],
             )
 
         return response
