@@ -90,7 +90,8 @@ SIMPLE_JWT = {
     # should consider these too!
     "ROTATE_REFRESH_TOKENS": False,
     "BLACKLIST_AFTER_ROTATION": False,
-    "UPDATE_LAST_LOGIN": False,
+    "UPDATE_LAST_LOGIN": True,
+    "TOKEN_OBTAIN_SERIALIZER": "users.serializers.LoginSerializer"
 }
 
 AUTH_USER_MODEL = 'users.User'
@@ -99,6 +100,8 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
 
 ] # add frontend client
+
+ACCESS_TOKEN_KEY = "access_token"
 
 REFRESH_TOKEN_COOKIE = {
     "key": "refresh_token",
