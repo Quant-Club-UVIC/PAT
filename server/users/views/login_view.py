@@ -7,6 +7,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.conf import settings
 
 from users.serializers.login_serializer import LoginSerializer
+from utils.responses import error_response
 
 
 class LoginView(TokenObtainPairView):
@@ -48,10 +49,10 @@ class LoginView(TokenObtainPairView):
             raise
         except Exception as e:
             # TODO: log it properly
-            return Response(
-                {"error": "Unexpected error occurred. Try again later"},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            return error_response(message="Unexpected error occurred. Try again later",
+                                  status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
         return response
 
 
