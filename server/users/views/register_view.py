@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import generics, status
 from rest_framework.exceptions import ValidationError
 
-from ..serializers import RegisterSerializer
+from users.serializers.register_serializer import RegisterSerializer
 from utils.responses import success_response, error_response
 
 User = get_user_model()
