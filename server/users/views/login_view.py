@@ -42,8 +42,7 @@ class LoginView(TokenObtainPairView):
                     samesite=settings.REFRESH_TOKEN_COOKIE["samesite"],
                     max_age=settings.REFRESH_TOKEN_COOKIE["max_age"],
                 )
-            else:
-                print("ERROR: ", response)
+
         except (ValidationError, AuthenticationFailed):
             # let the DRF handle this coming from the serializer
             raise

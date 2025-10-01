@@ -1,4 +1,3 @@
-import http.cookies
 from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
@@ -22,16 +21,16 @@ REFRESH_TOKEN_KEY = settings.REFRESH_TOKEN_COOKIE['key']
 class LoginTests(APITestCase):
 
     def setUp(self):
+        self.url = reverse('login')
         self.user = User.objects.create_user(
             email=USER_DATA['email'],
             password=USER_DATA['password']
         )
 
     def test_login_returns_access_and_refresh_token_on_success(self):
-        url = reverse('login')
         user_data = USER_DATA.copy()
 
-        response = self.client.post(url, user_data, format='json')
+        response = self.client.post(self.url, user_data, format='json')
 
         self.assertEqual(response.status_code, status.HTTP_200_OK, "Should return 200 status")
 
@@ -51,9 +50,7 @@ class LoginTests(APITestCase):
         self.assertEqual(int(refresh_cookie["max-age"]), settings.REFRESH_TOKEN_COOKIE["max_age"])
 
     def test_login_with_wrong_credentials(self):
-        url = reverse('login')
-
-        response: Response = self.client.post(url, {
+        response: Response = self.client.post(self.url, {
             'email': 'wrongEmail@gmail.com',
             'password': 'wrongPassword123'
         }, format='json')
@@ -70,7 +67,7 @@ class LoginTests(APITestCase):
         url = reverse('login')
         data = USER_DATA.copy()
 
-        response = self.client.post(url, {
+        response = self.client.post(self.url, {
             'email': data.get('email'),
         }, format='json')
 
@@ -87,7 +84,7 @@ class LoginTests(APITestCase):
         user_data = USER_DATA.copy()
 
         with patch.object(User.objects, "get", side_effect=OperationalError("DB connection lost")):
-            response = self.client.post(url, user_data, format="json")
+            response = self.client.post(self.url, user_data, format="json")
 
         self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
 
