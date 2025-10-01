@@ -25,7 +25,7 @@ class RegisterView(generics.CreateAPIView):
             error_message = RegisterValidation.format_validation_error(ve)
             raise ValidationError({"error": error_message})
 
-        except Exception as e:
+        except Exception:
             return error_response(
                 "An unexpected error occurred. Please try again later.",
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
