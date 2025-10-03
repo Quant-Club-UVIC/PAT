@@ -106,7 +106,7 @@ ACCESS_TOKEN_KEY = "access_token"
 REFRESH_TOKEN_COOKIE = {
     "key": "refresh_token",
     "httponly": True,
-    "secure": True,
+    "secure": False,
     "samesite": "Lax",
     "max_age": 60 * 60 * 24 * 7,  # 7 days
 }
