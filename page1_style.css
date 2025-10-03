@@ -1,0 +1,33 @@
+/* make sizing easier + smooth scrolling*/
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, sans-serif; }
+
+/*box of header*/
+header {
+    text-align: center;
+    padding: 4rem 1rem; 
+}
+/*first header*/
+ header h1 {
+    font-size: 2.5rem;
+    font-weight:500;
+    margin-bottom: 1.5rem;
+}
+/*the anchor link of the header*/
+header a {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+
+    background-color: white;
+    border:solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+
