@@ -58,3 +58,6 @@ coverage/
 .pytest_cache/
 .mypy_cache/
 .cache/
+
+#API KEYS
+notebooks/data/config.py
