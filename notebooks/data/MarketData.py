@@ -2,6 +2,7 @@ import requests
 import datetime
 import pandas as pd
 import re
+import io
 
 class MarketData():
     """
@@ -121,4 +122,21 @@ class MarketData():
 
         return df, div_yield, inc_date, net_expense_ratio
 
+    def _save_get_csv(url : str, timeout : int = 10) -> pd.DataFrame:
+        """
+        For safely getting csv from the API
+        """
+        response = requests.get(url, timeout=timeout)
+        if response.status_code != 200:
+            raise ConnectionError(f"API returned an error {response.status_code} : {response.text}")
+
+        #Maybe a json was returned
+        txt = response.text.strip()
+        if txt.startswith('{') or txt.startswith('['):
+            try:
+                msg = response.json().get('Note')
+    def _save_get_json():
+        """
+        For safely getting json from the API
+        """
                 
