@@ -29,5 +29,36 @@ header a {
     text-decoration: none;
 }
 
+.arrow-icon { 
+    display: inline-block;
+    width: 25px; 
+    height: 25px;
+    vertical-align: text-bottom;
+    margin-left: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .layout { 
+        display: grid; 
+        grid-template-columns: 220px 1fr; /* sidebar | content */ 
+        gap: 1rem;
+        max-width: none;
+        margin: 0;
+
+    }
+    .sidebar {grid-column: 1; grid-row: 1; align-self: start; position: sticky; width:100%; justify-self: start;}
+    .content {grid-column: 2; grid-row: 1} 
+}
+
+.sidebar {
+    background: #f7f2fa;
+    border-radius: 1rem;
+    padding: 1.25rem 1.25 50.25rem 1.25rem;
+    position: sticky; top: 0;
+    height: fit-content;
+    
+}
+
+
 
 
