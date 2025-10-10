@@ -1,0 +1,92 @@
+/* make sizing easier + smooth scrolling*/
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, sans-serif; }
+
+/*box of header*/
+header {
+    text-align: center;
+    padding: 4rem 1rem; 
+}
+/*first header*/
+ header h1 {
+    font-size: 2.5rem;
+    font-weight:500;
+    margin-bottom: 1.5rem;
+}
+/*the anchor link of the header*/
+header a {
+    display: inline-block;
+    padding: 0.5rem 2rem;
+
+    background-color: white;
+    border:solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.arrow-icon { 
+    display: inline-block;
+    width: 25px; 
+    height: 25px;
+    vertical-align: text-bottom;
+    margin-left: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+    .layout { 
+        display: grid; 
+        grid-template-columns: 150px 1fr; /* sidebar | content */ 
+        gap: 0rem;
+        max-width: none;
+        margin: 0;
+
+    }
+    .sidebar {grid-column: 1; grid-row: 1; align-self: start; position: sticky; width:100%; justify-self: start;}
+    .content {grid-column: 2; grid-row: 1} 
+}
+
+.sidebar {
+    background: #f7f2fa;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    height: 100vh;
+    width: fit-content;
+    display: flex;
+}
+
+.sidebar nav {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.sidebar nav a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none; 
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.66)
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem
+}
+
+.menu-toggle { 
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+}
+
+
+
